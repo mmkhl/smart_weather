@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="container">
         <nav>
-          <router-link to="/">Weather</router-link>
+          <router-link to="/">Weatherwefwef</router-link>
           <router-link to="/recomendation">Recomendation</router-link>
         </nav>
         <router-view/>
