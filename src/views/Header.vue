@@ -4,7 +4,7 @@
       <h2>Almaty</h2>
     </div>
     <div class="options">
-      <div>Settings</div>
+      <div> Settings</div>
       <div>Theme</div>
       <div>City</div>
     </div>
