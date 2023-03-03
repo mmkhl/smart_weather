@@ -3,10 +3,11 @@
     <div class="wrapper">
       <div class="container">
         <nav>
-          <router-link to="/">Weather</router-link> |
-          <router-link to="/about">Recomendation</router-link>
+          <router-link to="/">Weather</router-link>
+          <router-link to="/recomendation">Recomendation</router-link>
         </nav>
-        <router-view />
+        <router-view/>
+
       </div>
     </div>
   </div>
