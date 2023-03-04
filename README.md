@@ -1,4 +1,4 @@
-# my-app
+# Smart weather on vue 2.6
 
 ## Project setup
 ```
