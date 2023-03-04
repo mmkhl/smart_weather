@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div>
-      <h2>Almaty</h2>
+      <h2>{{weatherData}}</h2>
     </div>
     <div class="options">
       <div>
@@ -11,7 +11,7 @@
           height="30px"
           width="30px"
         />
-        Settings
+        Setings
       </div>
       <div>
         <img
@@ -23,7 +23,7 @@
 
         Theme
       </div>
-      <div>
+      <div @click="getLocationUser">
         <img
           src="../assets/location.svg"
           alt="setings"
@@ -40,6 +40,24 @@
 <script>
 export default {
   name: 'Header',
+  props:{
+    weatherData: {
+            type: Object,
+            default: () => ({})
+        }
+  },
+  data() {
+    return {
+      location: localStorage.getItem('location'),
+    }
+  },
+  methods: {
+    getLocationUser() {
+      const location = Intl.DateTimeFormat().resolvedOptions().timeZone
+      this.location = location.split('/')[1]
+      localStorage.setItem('location', this.location)
+    },
+  },
 }
 </script>
 
@@ -48,6 +66,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  padding: 30px 0;
 }
 
 .options div {
@@ -57,6 +77,7 @@ export default {
 }
 
 h2 {
+  margin: 0;
   font-size: 42px;
 }
 img {
@@ -72,7 +93,12 @@ img {
   backdrop-filter: blur(15px);
   padding: 15px;
   display: flex;
-
+  cursor: pointer;
   justify-content: space-between;
+  transition: all 0.7s linear;
+
+}
+.options div:hover {
+  color: #dfa019;
 }
 </style>

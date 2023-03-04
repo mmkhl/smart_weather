@@ -18,6 +18,11 @@
 import WeatherPage from './pages/WeatherPage.vue';
 
 export default {
+  data(){
+    return {
+      location: '',
+    }
+  },
   components:{
     WeatherPage
   }

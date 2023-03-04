@@ -26,6 +26,7 @@ export default {
 <style scoped>
 .current__weather {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="today__weather">
+  <div class="today__weather" >
     <div class="block__info">
       <h2>Today</h2>
       <img
@@ -26,7 +26,6 @@ export default {
 <style scoped>
 .today__weather {
   display: block;
-  max-width: 700px;
   width: 100%;
   border-radius: 15px;
   background-color: #2221213a;
@@ -35,6 +34,8 @@ export default {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  margin: 10px;
+  flex: 1;
 }
 .block__info {
   width: 100%;
