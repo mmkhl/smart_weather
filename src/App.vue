@@ -2,16 +2,32 @@
   <div id="app">
     <div class="wrapper">
       <div class="container">
-        <nav>
-          <router-link to="/">Weatherwefwef</router-link>
+        <!-- <nav>
+          <router-link to="/">Weather</router-link>
           <router-link to="/recomendation">Recomendation</router-link>
         </nav>
-        <router-view/>
+        <router-view/> -->
+        <WeatherPage/>
 
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import WeatherPage from './pages/WeatherPage.vue';
+
+export default {
+  components:{
+    WeatherPage
+  }
+}
+
+
+</script>
+
+
+
 
 <style>
 body {
@@ -27,12 +43,15 @@ body {
 .wrapper {
   width: 100%;
   height: 100vh;
-  background: rgb(42, 42, 43);
+  background: url(./assets/background.jpg) no-repeat;
+  background-size: cover;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 10px;
+
 }
 nav {
   text-align: end;
