@@ -1,26 +1,43 @@
 <template>
-  <div class="today__weather" >
+  <div class="today__weather">
     <div class="block__info">
       <h2>Today</h2>
-      <img
-        src="../assets/cloudly.svg"
-        alt="setings"
-        height="100px"
-        width="100px"
-      />
+      <img :src="getImage" alt="" />
+
     </div>
-    <div>
-      <h1>+24</h1>
+    <div >
+      <h1 v-if="isPositive">+{{ maxTempToday }}</h1>
+      <h1 v-else>{{ maxTempToday }}</h1>
     </div>
   </div>
 </template>
 
 <script>
+import { getData } from '../services/storage-service'
 export default {
   name: 'TodayWeather',
+  data() {
+    return {
+      iconWeather: null,
+      maxTempToday: null,
+      isPositive: true,
+    }
+  },
+  mounted() {
+    this.maxTempToday = Math.round(
+      JSON.parse(getData('weather')).main.temp - 273
+    )
+    if (this.maxTempToday > 0) return this.isPositive
+    else return (this.isPositive = !this.isPositive)
+  },
+  computed: {
+    getImage(){
+      this.iconWeather = JSON.parse(getData('weather')).weather[0].icon;
+      const urlImage = `http://openweathermap.org/img/wn/${this.iconWeather}@2x.png`
+      return urlImage;
+    },
+  },
 }
-
-
 </script>
 
 <style scoped>

@@ -1,21 +1,50 @@
 <template>
   <div class="weekly__weather">
     <h2>Weekly weather</h2>
+    <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
   </div>
 </template>
 
 <script>
-export default {}
+import { Bar } from 'vue-chartjs'
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from 'chart.js'
+
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+ChartJS.defaults.color = "#fff"
+export default {
+  name: 'BarChart',
+  components: { Bar },
+  data() {
+    return {
+      chartData: {
+        labels: ['Monday', 'Thusday', 'Wednesday'],
+        datasets: [{ data: [7, 2, 5] }],
+        updateMode: false
+      },
+      chartOptions: {
+        responsive: true,
+      },
+    }
+  },
+}
 </script>
 
 <style scoped>
 .weekly__weather {
   display: block;
-  width: 100%;
-  height: 200px;
-  margin: 10px 0;
+  width: auto;
+  height: auto;
+  margin: 10px;
   border-radius: 15px;
-  background-color: #2221213a;
+  background-color: #22212154;
   backdrop-filter: blur(15px);
   padding: 15px;
 
