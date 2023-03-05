@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :weather-data="weatherData" />
+    <Header />
     <Weather />
   </div>
 </template>
@@ -8,7 +8,6 @@
 <script>
 import Header from '../views/Header.vue'
 import Weather from '../views/Weather.vue'
-import { fetchWeatherInfo } from '@/services/weather-service'
 export default {
   name: 'WeatherPage',
   components: {
@@ -16,16 +15,9 @@ export default {
     Weather,
   },
   data() {
-    return {
-      weatherData: null,
-    }
+    return {}
   },
-  methods: {
-    async getWeather() {
-      this.weatherData = await fetchWeatherInfo().main.city
-      console.log(this.weatherData)
-    },
-  },
+  methods: {},
 }
 </script>
 

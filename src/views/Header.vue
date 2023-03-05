@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div>
-      <h2>{{weatherData}}</h2>
+      <h2>{{ location }}</h2>
     </div>
     <div class="options">
       <div>
@@ -23,7 +23,7 @@
 
         Theme
       </div>
-      <div @click="getLocationUser">
+      <div>
         <img
           src="../assets/location.svg"
           alt="setings"
@@ -38,24 +38,35 @@
 </template>
 
 <script>
+import { getData } from '@/services/storage-service'
+import { fetchWeatherInfo } from '@/services/weather-service'
 export default {
   name: 'Header',
-  props:{
+  props: {
     weatherData: {
-            type: Object,
-            default: () => ({})
-        }
+      type: Object,
+      default: () => ({}),
+    },
   },
   data() {
     return {
-      location: localStorage.getItem('location'),
+      location: getData('location'),
     }
+  },
+  created() {
+    this.getLocationUser()
   },
   methods: {
     getLocationUser() {
       const location = Intl.DateTimeFormat().resolvedOptions().timeZone
       this.location = location.split('/')[1]
       localStorage.setItem('location', this.location)
+      this.getCity()
+    },
+    async getCity() {
+      const city = getData('location')
+      await fetchWeatherInfo(city)
+      getData(location)
     },
   },
 }
@@ -96,7 +107,6 @@ img {
   cursor: pointer;
   justify-content: space-between;
   transition: all 0.7s linear;
-
 }
 .options div:hover {
   color: #dfa019;

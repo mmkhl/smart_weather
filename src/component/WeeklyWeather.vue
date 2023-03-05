@@ -11,9 +11,9 @@ export default {}
 <style scoped>
 .weekly__weather {
   display: block;
-  width: 98%;
+  width: 100%;
   height: 200px;
-  margin: 10px;
+  margin: 10px 0;
   border-radius: 15px;
   background-color: #2221213a;
   backdrop-filter: blur(15px);
