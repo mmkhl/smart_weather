@@ -85,6 +85,8 @@ ChartJS.register(
   CategoryScale,
   PointElement
 )
+ChartJS.defaults.color = '#fff'
+ChartJS.defaults.fontSize = '16px'
 
 export default {
   name: 'LineChart',
@@ -113,18 +115,20 @@ export default {
     return {
       chartData: {
         labels: [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
+          'Monday',
+          'Tuesday',
+          'Wesnesday',
+          'Thirsday',
+          'Friday',
+          'Saturday',
+          'Sunday',
         ],
         datasets: [
           {
-            label: 'Data One',
+            label: null,
             backgroundColor: '#f87979',
+            borderColor: '#fff',
+            borderWidth: 3,
             data: [40, 39, 10, 40, 39, 80, 40],
           },
         ],
@@ -132,6 +136,23 @@ export default {
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Weekly weather',
+            align: 'start',
+            font: {
+              size: '48px',
+              color: '#fffff',
+            },
+          },
+          legend: {
+            display: false,
+            labels: {
+              color: 'rgb(255, 99, 132)',
+            },
+          },
+        },
       },
     }
   },

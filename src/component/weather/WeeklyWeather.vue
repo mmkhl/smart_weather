@@ -1,7 +1,6 @@
 <template>
   <div class="weekly__weather">
-    <h2>Weekly weather</h2>
-    <LineChart :height="450"/>
+    <LineChart css-classes="chart__line"/>
   </div>
 </template>
 
@@ -19,20 +18,23 @@ export default {
   display: block;
   width: auto;
   height: auto;
-  max-height: 600px;
+  max-height: 500px;
   margin: 10px;
   border-radius: 15px;
   background-color: #22212154;
   backdrop-filter: blur(15px);
-  padding: 15px;
-
+  padding: 0 10px 15px 10px;
+  color: #fff;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+canvas{
+  color: #fff;
+}
 h2 {
   margin: 0;
+  padding: 10px 0;
 }
 
 h1 {
