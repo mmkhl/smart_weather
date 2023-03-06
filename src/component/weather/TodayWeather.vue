@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { getData } from '../services/storage-service'
+import { getData } from '../../services/storage-service'
 export default {
   name: 'TodayWeather',
   data() {
@@ -23,10 +23,10 @@ export default {
       isPositive: true,
     }
   },
-  mounted() {
-    this.maxTempToday = Math.round(
+  async created() {
+    this.maxTempToday = await (Math.round(
       JSON.parse(getData('weather')).main.temp - 273
-    )
+    ))
     if (this.maxTempToday > 0) return this.isPositive
     else return (this.isPositive = !this.isPositive)
   },

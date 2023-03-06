@@ -4,21 +4,21 @@
       <TodayWeather />
       <TomorrowWeather />
     </div>
-    <WeaklyWeather />
+    <WeeklyWeather />
   </div>
 </template>
 
 <script>
-import TodayWeather from '@/component/TodayWeather.vue'
-import TomorrowWeather from '@/component/TomorrowWeather.vue'
-import WeaklyWeather from '@/component/WeeklyWeather.vue'
+import TodayWeather from '@/component/weather/TodayWeather.vue'
+import TomorrowWeather from '@/component/weather/TomorrowWeather.vue'
+import WeeklyWeather from '@/component/weather/WeeklyWeather.vue'
 
 export default {
   name: 'Weather',
   components: {
     TodayWeather,
     TomorrowWeather,
-    WeaklyWeather,
+    WeeklyWeather,
   },
 }
 </script>
@@ -29,5 +29,4 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 </style>

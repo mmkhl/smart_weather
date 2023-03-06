@@ -1,32 +1,25 @@
 <template>
-  <div class="tomorrow__weather" @click="clicked">
+  <div class="tomorrow__weather">
     <div class="block__info">
       <h2>Tomorrow</h2>
-      <img 
-        src="../assets/sunny.svg"
+      <img
+        src="../../assets/sunny.svg"
         alt="setings"
         height="100px"
         width="100px"
       />
     </div>
     <div>
-      <h1 >+31</h1>
+      <h1>+31</h1>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  methods:{
-    clicked(){
-      console.log(this.location)
-    }
-  }
-}
+export default {}
 </script>
 
 <style scoped>
-
 .tomorrow__weather {
   display: block;
   flex: 1;
@@ -52,7 +45,4 @@ h1 {
   margin: 0;
   font-size: 102px;
 }
-
-
-
 </style>
